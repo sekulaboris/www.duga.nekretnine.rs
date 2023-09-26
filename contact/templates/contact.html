@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+<head>
+    
+</head>
+{% block title %}{% endblock %}
+{% block content %}
+        <h1>Kontakt</h1>    
+        <h2 style="font-size: 36px;">Dobro dosli. Ukoliko imate neka pitanja slobodno me kontaktirajte ili pozovite. Tu sam da vam pomognem.</h2>
+</br>
+</br>
+</br>
+        <div id="table">
+            <style>
+                table {
+                  font-family: arial, sans-serif;
+                  border-collapse: collapse;
+                  width: 100%;
+                  font-size: 12px;
+                }
+                
+                td, th {
+                  border: 1px solid #dddddd;
+                  text-align: left;
+                  padding: 8px;
+                }
+                
+                tr:nth-child(even) {
+                  background-color: #dddddd;
+                }
+                </style>
+            <table>
+                <tr>
+                  <td>Adresa:</td>
+                  <td>Mesto:</td>
+                  <td>Matični broj:</td>
+                  <td>Pib:</td>
+                  <td>Email:</td>
+                  <td>Web:</td>
+                  <td>Mobilini:</td>
+                </tr>
+                <tr>
+                  <td>Maršala Tita broj</td>
+                  <td>Bačka Topola 24300</td>
+                  <td>xxxxxxxxxxxxx</td>
+                  <td>xxxxxxxxxxxxx</td>
+                  <td>duga.nekretine@yahoo.com</td>
+                  <td>duga.nekretnine.rs.onrender.com</td>
+                  <td>063.525.615</td>
+                </tr>
+            </table> 
+        </div>
+</br>
+</br>
+        <div id="levo" style="float: left;">
+            <p>Ukoliko se nalazite u Bačkoj Topoli, lako možete doći do mene. 
+                Nalazim se u ulici Maršala Tita broj ... na glavnom semaforu, kod ......</p>
+        </div>
+</br>
+        <div id="mapa" style="float: left;margin-left: 20%;">
+            
+            <img style="width: 500;height: 310px;" src="{% static 'images/mapa.jpg' %}">
+        </div>            
+</br>
+</br>
+       
+        <div id="contact" style="float: left;margin-top: 30px;">
+            <h3>Možete se informisati i putem poruke.</h3>
+</br>
+</br>
+            <form action="/contact/" method="post">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="fieldWrapper">
+                        {{ field.errors }}
+                        {{ field.label_tag }} {{ field }}
+                    </div>
+                {% endfor %}
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+
+{% endblock %}        
