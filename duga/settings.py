@@ -15,8 +15,8 @@ SECRET_KEY = 'django-insecure-v!g1tp)vd)!+i8qruo978_a!+ts$0&lx!!su&ll(g15*=xbch&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 #DEBUG = os.environ.get("DEBUG", "False").lower=="True"
-#ALLOWED_HOSTS = ['']
-#ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split()
+ALLOWED_HOSTS = ['duga-nekretnine-rs.onrender.com']
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split()
 SITE_ID=1
 # Application definition
 
