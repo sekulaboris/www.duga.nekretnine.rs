@@ -4,3 +4,11 @@
 {% block title %}
 <h1>Uspešno ste poslali poruku. Odgovor ćete dobiti u što kraćem roku.</h1>    
 {% endblock title %}
+
+
+{% block content %}
+    <h1 style="text-align: center; color: red;">Poruka je poslata. Kontaktiraću vas u najkraćem mogućem roku.</h1>
+    <h2> Ukoliko vas još nešto interesuje slobodno mi pošaljite opet poruku na <a href=" {% url 'contact:contact' %}">Contact Page</a></h2>
+{% endblock %}
+
+

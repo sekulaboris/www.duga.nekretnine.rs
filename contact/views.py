@@ -1,34 +1,17 @@
-from django.shortcuts import render, redirect
-from django.core.mail import EmailMessage
-from . forms import ContactForm
-from django.conf import settings
-from django.core.mail import send_mail
+from django.shortcuts import render
+from .models import Contact
 
-def success_view(requst):
-        return render (request, 'success.html')
+# Create your views here.
 
-def contact_view(request):
+def contact(request):
     if request.method == 'POST':
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            name = form.cleaned_data['name']
-            email = form.cleaned_data['email']
-            message = form.cleaned_data['message']
-
-
-            EmailMessage(
-               'Contact Form Submission from {}'.format(name),
-               message,
-               'form-response@example.com', # Send from (your website)
-               ['sekulaboris@yahoo.com'], # Send to (your admin email)
-               [],
-               reply_to=[email] # Email from the form to get back to
-            ).send()
-
-        return render(request,'contact:success_view')
-    else:
-        form = ContactForm()
-    return render(request, 'contact.html', {'form': form})
-
-
-    
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        phone = request.POST.get('phone')
+        mode_of_contact = request.POST.get('contact')
+        question_categories = request.POST.get('queries')
+        message = request.POST.get('message')
+        contact_data = Contact(name=name, email=email, phone=phone, mode_of_contact=mode_of_contact, question_categories=question_categories, message=message)
+        contact_data.save()
+        return render(request, 'success.html')
+    return render(request, 'contact.html')
