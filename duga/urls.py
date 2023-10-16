@@ -16,9 +16,6 @@ urlpatterns = [
    # path('sitemap.xml', sitemap, { 'sitemaps' : sitemaps },
    #     name="django.contrib.sitemaps.views.sitemap",),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-if settings.DEBUG:
-    urlpatterns = patterns('',
-    url(r'', include('django.contrib.staticfiles.urls')),
-) 
+
 #if settings.DEBUG:
 #    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
