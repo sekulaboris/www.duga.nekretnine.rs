@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, url
 from django.contrib.sitemaps.views import sitemap
 from blog.sitemaps import PostSitemap
 from django.conf import settings
@@ -16,7 +16,11 @@ urlpatterns = [
    # path('sitemap.xml', sitemap, { 'sitemaps' : sitemaps },
    #     name="django.contrib.sitemaps.views.sitemap",),
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
+if settings.DEBUG:
+    urlpatterns = patterns('',
+    url(r'^media/(?P<path>.*)$', 'django.views.static.serve',{'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+    url(r'', include('django.contrib.staticfiles.urls')),
+) + urlpatterns
 
 #if settings.DEBUG:
 #    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
