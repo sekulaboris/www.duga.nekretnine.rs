@@ -78,7 +78,7 @@ DATABASES = {
 
 database_url = os.environ.get("DATABASE_URL")
 DATABASES["default"] = dj_database_url.parse(database_url)
-DATABASES["default"]=dj_database_url.parse("postgres://ruvim_new_user:L0TdtrOR5k6bGYmepXkWTMcHum9aZqQG@dpg-cju29h7hdsdc7388jsjg-a.singapore-postgres.render.com/ruvim_new")
+#DATABASES["default"]=dj_database_url.parse("postgres://ruvim_new_user:L0TdtrOR5k6bGYmepXkWTMcHum9aZqQG@dpg-cju29h7hdsdc7388jsjg-a.singapore-postgres.render.com/ruvim_new")
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
