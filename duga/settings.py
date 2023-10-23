@@ -6,6 +6,7 @@ from pathlib import Path
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 #BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
+database_url = os.environ.get("DATABASE_URL")
 
 
 # Quick-start development settings - unsuitable for production
