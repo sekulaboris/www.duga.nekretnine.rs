@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+    <head>
+        <title>{% block title %}Nasa ponuda{% endblock %}</title>
+    </head>
+    <body>
+        {% block content %}
+            <h1>Ponuda nekretnina</h1>
+            {% for post in posts %}
+                <h2>
+                    <a href="{{ post.get_absolute_url }}">
+                        {{ post.title }}
+                    </a>
+                </h2>
+                <p class="date">
+                    Published {{ post.publish }}by{{ post.author }}
+                </p>
+                {{ post.body|truncatewords:10|linebreaks }}
+            {% endfor %}
+        {% endblock %}
+        
+    </body>
+</html>

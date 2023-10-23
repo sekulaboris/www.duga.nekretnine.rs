@@ -1,0 +1,62 @@
+{% extends 'list.html' %}
+{% load static %}
+{% block title %}{{ post.title }}{% endblock %}
+
+
+{% block content %}
+    <div id="tags">
+      <p class="tags" style="font-size: 10px;color: grey;">Tags:{{ post.tags.all|join:", " }}</p>
+    </div>
+    <h1>{{ post.title }}</h1>
+    <div style="margin: 60px 0px 15px 20px;">
+        <div>
+            <div class="ecommerce-gallery" data-mdb-zoom-effect="false" data-mdb-auto-height="false">
+                <div class="row py-3 shadow-5">
+                  <div class="col-12 mb-1">
+                    <div class="lightbox">
+                      <img style="width: 700px;height: 434px;"
+                        src="{% if post.image1 %}{{ post.image1.url }}{% else %}{% static 'images/no_image.jpg' %}{% endif %}"
+                        alt="Gallery image 1"
+                        class="ecommerce-gallery-main-img active w-100"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-3 mt-1">
+                    <img style="width: 165px;height: 102px;"
+                      src="{% if post.image2 %}{{ post.image2.url }}{% else %}{% static 'images/no_image.jpg' %}{% endif %}"
+                      alt="Gallery image 1"
+                      class="active w-100"
+                    />
+                  </div>
+                  <div class="col-3 mt-1">
+                    <img style="width: 165px;height: 102px;"
+                      src="{% if post.image3 %}{{ post.image3.url }}{% else %}{% static 'images/no_image.jpg' %}{% endif %}"
+                      alt="Gallery image 2"
+                      class="w-100"
+                    />
+                  </div>
+                  <div class="col-3 mt-1">
+                    <img style="width: 165px;height: 102px;"
+                      src="{% if post.image4 %}{{ post.image4.url }}{% else %}{% static 'images/no_image.jpg' %}{% endif %}"
+                      alt="Gallery image 3"
+                      class="w-100"
+                    />
+                  </div>
+                  <div class="col-3 mt-1">
+                    <img style="width: 165px;height: 102px;"
+                      src="{% if post.image5 %}{{ post.image5.url }}{% else %}{% static 'images/no_image.jpg' %}{% endif %}"
+                      
+                      alt="Gallery image 4"
+                      class="w-100"
+                    />
+                  </div>
+                </div>
+              </div>
+        <p class="date" style="float:left;padding-right: 15px;">
+           <!-- <img style="float: left;width: 400px;height: 300px;padding-right: 15px;" src="{% if post.image %}{{ post.image.url }}{% else %}{% static 'images/no_image.jpg' %}{% endif %}"></br>
+            -->Published {{ post.publish }} by {{ post.author }}
+        </p>
+        </div>
+        <div style="margin: 0px;padding-top: 30px;">{{ post.body|linebreaks }}</div>
+    </div>
+{% endblock %}
