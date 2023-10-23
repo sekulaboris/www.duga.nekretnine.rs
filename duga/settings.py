@@ -18,7 +18,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # DEBAR=True
 DEBUG = os.environ.get("DEBUG", "False").lower=="true"
 # ALLOWED_HOSTS = ['duga-nekretnine-rs.onrender.com']
-ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS")
 SITE_ID=1
 # Application definition
 
