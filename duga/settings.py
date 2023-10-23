@@ -1,7 +1,7 @@
 import os
-import environ
-env= environ.Env()
-environ.Env.read_env()
+#import environ
+#env= environ.Env()
+#environ.Env.read_env()
 
 import dj_database_url
 from pathlib import Path
