@@ -15,8 +15,8 @@ TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
 SECRET_KEY = 'django-insecure-v!g1tp)vd)!+i8qruo978_a!+ts$0&lx!!su&ll(g15*=xbch&'
 SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-DEBUG = os.environ.get("DEBUG", "False").lower=="True"
+# DEBAR=True
+DEBUG = os.environ.get("DEBUG", "False").lower=="true"
 ALLOWED_HOSTS = ['duga-nekretnine-rs.onrender.com']
 ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split()
 SITE_ID=1
