@@ -30,7 +30,7 @@ class Post(models.Model):
                                 default='draft')
     objects= models.Manager()
     published= PublishedManager()
-    image1=models.ImageField(upload_to='images/',
+    image1=models.ImageField(upload_to='static/images/',
                             blank=True)
     image2=models.ImageField(upload_to='static/images/',
                             blank=True)
